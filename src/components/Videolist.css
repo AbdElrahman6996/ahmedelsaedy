@@ -1,0 +1,11 @@
+.videolist-ele {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+    margin-left: 10px;
+}
+.videolist-ele span{
+    color: #000;
+    font-size: 15px;
+}
