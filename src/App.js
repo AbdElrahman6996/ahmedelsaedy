@@ -1,28 +1,24 @@
 import React from "react";
-import Header from "./components/Header";
 import "./index.css";
-import BottomBar from "./components/BottomBar";
-import VideoCard from "./components/VideoCard";
+import VideoPage from "./pages/VideosHomePage";
+
 
 function App() {
+  let components;
+  switch (window.location.pathname) {
+    case "/":
+      components = <VideoPage/>
+      break;
+    // case "/video":
+    //   components = <Product />;
+    //   break;
+    default:
+      components = <VideoPage/>
+      break;
+  }
   return (
     <>
-      <Header />
-      <section className="video-container">
-        <VideoCard
-        lecNo="الحصة الاولى"
-        />
-        <VideoCard
-        lecNo="الحصة الاولى"
-        />
-        <VideoCard
-        lecNo="الحصة الاولى"
-        />
-        <VideoCard
-        lecNo="الحصة الاولى"
-        />
-      </section>
-        <BottomBar/>
+     {components}
     </>
   );
 }

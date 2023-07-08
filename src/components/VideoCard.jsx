@@ -9,7 +9,7 @@ const VideoCard = ({ lecNo }) => {
           <h4>{lecNo}</h4>
         </div>
         <div className="right">
-          <a href="/">مشاهدة الآن</a>
+          <a href="/video">مشاهدة الآن</a>
         </div>
       </div>
       <div className="thumbnail">
