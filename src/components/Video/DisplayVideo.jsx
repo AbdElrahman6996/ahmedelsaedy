@@ -1,7 +1,7 @@
 import React from "react";
-import Videos from "../img/movie.mp4";
+import Videos from "../../img/movie.mp4";
 import VideoList from './VideoList'
-import "./DisplayVideo.css";
+import "../css/DisplayVideo.css";
 const DisplayVideo = () => {
   return (
     <main className="display-video">

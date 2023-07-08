@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from "../components/Header";
-import BottomBar from "../components/BottomBar";
-import VideoCard from "../components/VideoCard";
+import Header from "../components/Video/Header";
+import BottomBar from "../components/Video/BottomBar";
+import VideoCard from "../components/Video/VideoCard";
 
 const VideoPage = () => {
   return (

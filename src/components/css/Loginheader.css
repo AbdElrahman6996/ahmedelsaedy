@@ -1,0 +1,31 @@
+.loginheader {
+    background: linear-gradient(90deg, rgba(185,26,117,1) 0%, rgba(228,29,116,1) 69%);
+    width: 100vw;
+    height: 150px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.loginheader .left a{
+    font-size: 16px;
+
+}
+
+.loginheader .right a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    border: 1.8px solid white;
+}
+.loginheader .right a img{
+    width: 18px;
+}

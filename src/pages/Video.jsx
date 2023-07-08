@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../components/Header'
-import DisplayVideo from '../components/DisplayVideo'
-import BottomBar from '../components/BottomBar'
+import Header from '../components/Video/Header'
+import DisplayVideo from '../components/Video/DisplayVideo'
+import BottomBar from '../components/Video/BottomBar'
 
 const Video = () => {
   return (

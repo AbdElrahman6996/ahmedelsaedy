@@ -1,8 +1,8 @@
 import React from "react";
-import "./Bottombar.css";
-import VideoIcon from "../icons/video.svg";
-import PenIcon from "../icons/pen.svg";
-import PieIcon from "../icons/pie.svg";
+import "../css/Bottombar.css";
+import VideoIcon from "../../icons/video.svg";
+import PenIcon from "../../icons/pen.svg";
+import PieIcon from "../../icons/pie.svg";
 const BottomBar = () => {
   return (
     <div className="bottomnav">

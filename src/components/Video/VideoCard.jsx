@@ -1,5 +1,5 @@
 import React from "react";
-import "./Videocard.css";
+import "../css/Videocard.css";
 // import ThumbNail from '../img/Screenshot_1.png'
 const VideoCard = ({ lecNo }) => {
   return (

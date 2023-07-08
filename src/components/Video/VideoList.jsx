@@ -1,6 +1,6 @@
 import React from "react";
-import VideoIcon from "../icons/video2.svg";
-import './Videolist.css'
+import VideoIcon from "../../icons/video2.svg";
+import '../css/Videolist.css'
 const VideoList = ({ VideoName }) => {
   return (
     <a href='/' className="videolist-ele">
