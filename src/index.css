@@ -28,6 +28,8 @@ body {
 
 @media screen and (min-width: 622px) {
   .video-container {
+    margin: 0 auto;
     margin-top: 50px;
+    max-width: 1200px;
   }
 }
