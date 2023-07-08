@@ -1,8 +1,15 @@
 import React from 'react'
+import Header from '../components/Header'
+import DisplayVideo from '../components/DisplayVideo'
+import BottomBar from '../components/BottomBar'
 
 const Video = () => {
   return (
-    <div>Video</div>
+    <>
+        <Header/>
+        <DisplayVideo/>
+        <BottomBar/>
+    </>
   )
 }
 
