@@ -2,7 +2,7 @@
   width: 90vw;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 80px;
   direction: rtl;
   display: flex;
   flex-direction: column;
@@ -43,12 +43,14 @@
   .display-video .left {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     overflow: auto;
     padding-left: 15px;
   }
   .display-video .left h4{
     margin-bottom: 10px;
+    font-size: 18px;
+    margin-left: 10px;
   }
   .main-video {
     margin-top: 0px;
