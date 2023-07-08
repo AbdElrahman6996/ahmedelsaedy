@@ -1,0 +1,28 @@
+header {
+    width: 100vw;
+    height: 150px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    overflow: hidden;
+    justify-content: space-between;
+    background: linear-gradient(120deg, rgba(162,237,151,1) 0%, rgba(62,120,128,1) 69%);
+}
+
+header .mid {
+    height: 150px;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+header .mid img{
+    height: 120%;
+}
+
+.left a{
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+}

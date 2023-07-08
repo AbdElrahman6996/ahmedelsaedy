@@ -1,0 +1,48 @@
+.bottomnav {
+    position: fixed;
+    bottom: 0px;
+    left: 10%;
+    height: 50px;
+    border-radius: 40px;
+    background: #e7e7e7;
+    width: 80vw;
+    max-width: 500px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottomnav .courses {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 40%;
+    justify-content: center;
+    height: 35px;
+    border-radius: 30px;
+    background: #198754;
+    margin-left: 5px;
+}
+
+.bottomnav .right {
+    display: flex;
+    width: 45%;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 20px;
+}
+.bottomnav .courses p{
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+@media screen and (min-width: 622px) {
+    .bottomnav {
+        left: 50%;
+        bottom: 20px;
+        transform: translate(-50%);
+        width: 100vw;
+        margin: 0 auto;
+    }
+}
