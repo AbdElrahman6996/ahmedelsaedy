@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import VideoPage from "./pages/VideosHomePage";
+import Video from "./pages/Video";
 
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
     case "/":
       components = <VideoPage/>
       break;
-    // case "/video":
-    //   components = <Product />;
-    //   break;
+    case "/video":
+      components = <Video/>;
+      break;
     default:
       components = <VideoPage/>
       break;
