@@ -7,13 +7,39 @@
     border-radius: 20px;
     text-align: center;
     padding-top: 20px;
+    margin-bottom: 50px;
 }
 
 .alert-container .main-txt {
-    border: 2px solid red;
     width: 80%;
     margin: 0 auto;
     margin-top: 30px;
-    padding-bottom: 50px;
-    text-align: end;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.social-media div {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-media div img{
+    width: 30px;
+    border-radius: 50%;
+}
+.social-media div a {
+    color: #000;
+    font-weight: bold;
 }
