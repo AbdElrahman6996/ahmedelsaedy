@@ -14,7 +14,7 @@ const Hero = () => {
         </p>
         <div className="btn">
           <button className="know">تعرف على المزيد</button>
-          <button className="start">ابدأ الآن</button>
+          <button className="start">اشترك الآن</button>
         </div>
       </div>
       <div className="img-container">

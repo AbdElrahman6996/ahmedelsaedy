@@ -1,12 +1,12 @@
 .photo-container {
     width: 80vw;
     margin: 0 auto;
-    margin-top: 100px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    margin-top: 100px;
     max-width: 1200px;
 }
 .photo-container .headering h3{
@@ -33,3 +33,9 @@
     height: 290px;
     border-radius: 10px;
 } 
+
+@media screen and (max-width: 998px) {
+    .photo-container {
+        margin-top: 80px;
+    }
+}

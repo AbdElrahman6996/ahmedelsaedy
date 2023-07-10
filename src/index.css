@@ -25,7 +25,15 @@ body {
   gap: 30px;
   margin-bottom: 100px;
 }
-
+footer {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  direction: rtl;
+}
+footer span{
+  font-weight: 500;
+}
 @media screen and (min-width: 622px) {
   .video-container {
     margin: 0 auto;

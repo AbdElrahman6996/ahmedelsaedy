@@ -1,0 +1,43 @@
+.him-section {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 140px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.him-section .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.him-section .right {
+    width: 60%;
+    height: 350px;
+    direction: rtl;
+}
+.him-section .right h2{
+    margin-bottom: 20px;
+}
+.him-section .right p{
+    font-size: 22px;
+}
+.him-section .left img {
+  width: 80%;
+  max-width: 300px;
+}
+@media screen and (max-width:1078px){
+    .him-section .right {
+        width: 90%;
+        height: 350px;
+        text-align: center;
+    }
+    .him-section .right p{
+        font-size: 19px;
+    }
+}
