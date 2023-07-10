@@ -1,0 +1,68 @@
+.hero-container {
+    text-align: center;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.hero-container .txt-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.hero-container .txt-container .btn{
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+.hero-container .txt-container .btn .know{
+    display: block;
+    width: 180px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+}
+.hero-container .txt-container .btn .start{
+    display: block;
+    width: 180px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: #198754;
+    font-size: 16px;
+}
+.hero-container .txt-container h2{
+    font-size: 30px;
+}
+
+.hero-container .img-container { 
+    display: none;
+}
+
+@media screen and (min-width:1000px){
+    .hero-container {
+        display: flex;
+        max-width: 1100px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .hero-container .img-container { 
+        display: unset;
+    }
+    .hero-container .txt-container {
+        text-align: right;
+        gap: 30px;
+    }
+    .hero-container .txt-container p {
+        font-size: 14px;
+    }
+}
