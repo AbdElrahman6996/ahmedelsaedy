@@ -51,7 +51,7 @@
 @media screen and (min-width:1000px){
     .hero-container {
         display: flex;
-        max-width: 1100px;
+        max-width: 1000px;
         align-items: center;
         justify-content: space-between;
     }
