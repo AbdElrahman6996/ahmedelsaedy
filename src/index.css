@@ -1,43 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
-  scroll-behavior: smooth;
-}
-
-a {
-  text-decoration: none;
-}
-
 body {
-  background: #f4f5fe;
-  overflow-x: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.video-container {
-  display: flex;
-  margin-top: -38px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-bottom: 100px;
-}
-footer {
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 40px;
-  direction: rtl;
-}
-footer span{
-  font-weight: 500;
-}
-@media screen and (min-width: 622px) {
-  .video-container {
-    margin: 0 auto;
-    margin-top: 50px;
-    max-width: 1200px;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
