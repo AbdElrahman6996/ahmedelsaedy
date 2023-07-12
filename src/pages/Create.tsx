@@ -7,23 +7,23 @@ const Create = () => {
   const [year, setYear] = useState("");
 
   const sendData = async (email: string, password: string, year: string) => {
-    await fetch("http://localhost:8000/api/db/register", {
+    await fetch("http://localhost:3000/api/db/register", {
       method: "POST",
       body: JSON.stringify({
         email,
         password,
         year,
-        joinedAt: new Date().toUTCString()
+        joinedAt: new Date().toUTCString(),
       }),
-      headers: {"Content-Type": 'application/json'}
-    }).then(async respnse => {
-        const res: {
-            sessionToken: string
-        } = await respnse.json() as unknown as {
-            sessionToken: string
-        };
-        localStorage.setItem('private_token', res.sessionToken)
-    })
+      headers: { "Content-Type": "application/json" },
+    }).then(async (respnse) => {
+      const res: {
+        sessionToken: string;
+      } = (await respnse.json()) as unknown as {
+        sessionToken: string;
+      };
+      localStorage.setItem("private_token", res.sessionToken);
+    });
   };
 
   const handleClick = () => {
@@ -53,12 +53,7 @@ const Create = () => {
       </div>
       <div className="year">
         <label htmlFor="year">اختر السنه الدراسيه</label>
-        <select
-          name="cars"
-          id="cars"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
-        >
+        <select value={year} onChange={(e) => setYear(e.target.value)}>
           <option value="zero">اختر السنه الدراسيه</option>
           <option value="first">الاول الثانوي</option>
           <option value="second">الثاني الثانوي</option>
@@ -68,6 +63,42 @@ const Create = () => {
       <div className="create-btn">
         <button onClick={handleClick}>انشاء الحساب</button>
       </div>
+      <h2>تجديد اشتراك</h2>
+      <div className="renew">
+        <label htmlFor="Video Name">ادخل البريد الالكتروني</label>
+        <input
+           type="email"
+           placeholder="example@gmail.com"
+        />
+      </div>
+      <h2>رفع حصة</h2>
+      <div className="name-video">
+        <label htmlFor="Video Name">اسم الفديو</label>
+        <input
+          type="email"
+          placeholder="الحصة الاولى ( نحو )"
+        />
+      </div>
+      <div className="note-video">
+        <label htmlFor="Video note">العنوان الفرعي للحصه</label>
+        <input
+          type="email"
+          placeholder="الفصل الاول من القصة (الايام )"
+        />
+      </div>
+      <div className="picture-video">
+        <label htmlFor="pic">اختيار الصوره المصغره</label>
+        <input
+          type="file"
+        />
+      </div>
+      <div className="main-video">
+        <label htmlFor="pic">اختيار مقطع الفديو</label>
+        <input
+          type="file"
+        />
+      </div>
+      <button>رفع الحصة</button>
     </div>
   );
 };
