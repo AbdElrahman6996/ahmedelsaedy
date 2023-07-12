@@ -67,10 +67,11 @@ const Create = () => {
       <div className="renew">
         <label htmlFor="Video Name">ادخل البريد الالكتروني</label>
         <input
-           type="email"
-           placeholder="example@gmail.com"
+          type="email"
+          placeholder="example@gmail.com"
         />
       </div>
+      <button>نجديد الاشتراك</button>
       <h2>رفع حصة</h2>
       <div className="name-video">
         <label htmlFor="Video Name">اسم الفديو</label>
