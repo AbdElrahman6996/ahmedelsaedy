@@ -21,8 +21,10 @@ export const api_module:route = {
             const account = accountData as unknown as user;
             if(account) return res.json({
                 status: "TRUE",
-                code: 200
+                code: 200,
+                private_token: accountData?.localStorageToken
             });
+            console.log(accountData)
             if(!account) return res.json({
                 status: "FALSE",
                 code: 400
