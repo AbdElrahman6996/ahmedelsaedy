@@ -11,7 +11,9 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-
+button {
+  cursor: pointer;
+}
 a {
   text-decoration: none;
 }

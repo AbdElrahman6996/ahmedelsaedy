@@ -13,8 +13,8 @@ const Hero = () => {
           المطلوبه حتى التحضير للامتحانات
         </p>
         <div className="btn">
-          <button className="know">تعرف على المزيد</button>
-          <button className="start">اشترك الآن</button>
+          <a href="/" className="know">تعرف على المزيد</a>
+          <a href="/login" className="start">اشترك الآن</a>
         </div>
       </div>
       <div className="img-container">
