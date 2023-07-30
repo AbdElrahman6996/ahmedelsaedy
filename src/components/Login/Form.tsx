@@ -4,7 +4,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const sendData = async (email: string, password: string) => {
-    await fetch('http://localhost:8000/api/db/login', {
+    await fetch('http://localhost:3000/api/db/login', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify({
@@ -12,6 +12,7 @@ const Form = () => {
             password: password
         })
     }).then(r => r.json()).then(response => {
+
         // What will you do with the response
         /*
             {

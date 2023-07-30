@@ -51,7 +51,7 @@ const VideoPage = () => {
         <Header />
             <section className="video-container">
                 { getVideos ? getVideos.map((video, index) => (
-                    <div key={index} onClick={() => {
+                    <div className='video-ele' key={index} onClick={() => {
                         window.location.href = `/video?id=${(video as unknown as {
                             vid  : string,
                             title: string,
@@ -69,7 +69,7 @@ const VideoPage = () => {
                             img  : string,
                         }).title}</p>
                     </div>
-                )) : <p>Wait</p> }
+                )) : <p>Loading ..</p> }
             </section>
         <BottomBar />
         {

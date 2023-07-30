@@ -34,7 +34,34 @@ a {
     max-width: 1200px;
   }
 }
-
+.video-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.video-container div {
+  display: flex;
+  flex-direction: column-reverse;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  width: 300px;
+  text-align: center;
+}
+.video-container div p{
+  direction: rtl;
+  font-size: 16px;
+  font-weight: bold;
+}
+.video-container div img{
+  width: 200px;
+}
 
 .ytp-contextmenu
 {
