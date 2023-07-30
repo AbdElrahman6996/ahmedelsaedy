@@ -7,22 +7,25 @@ const Create = () => {
   const [year, setYear] = useState("");
 
   const sendData = async (email: string, password: string, year: string) => {
-    await fetch("http://localhost:3000/api/db/register", {
+    await fetch("http://localhost:8000/api/db/register", {
       method: "POST",
       body: JSON.stringify({
-        email,
-        password,
-        year,
-        joinedAt: new Date().toUTCString(),
+        emailAddress: email,
+        password: password,
+        educationLevel: year,
       }),
       headers: { "Content-Type": "application/json" },
-    }).then(async (respnse) => {
-      const res: {
-        sessionToken: string;
-      } = (await respnse.json()) as unknown as {
-        sessionToken: string;
-      };
-      localStorage.setItem("private_token", res.sessionToken);
+    }).then(r => r.json()).then(response => {
+        // What will you do with the response
+        /*
+            {
+                reply  : 'تم انشاء الحساب',
+                message: 'Created the account',
+                code   : 200,
+            }
+        */
+
+        // Write the logic.
     });
   };
 

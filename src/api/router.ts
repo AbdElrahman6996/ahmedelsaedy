@@ -4,6 +4,7 @@ import compression from 'compression';
 import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
+
 import { route } from './route';
 import { Message } from './api';
 
@@ -17,7 +18,7 @@ api.use(urlencoded({ extended: true }));
 
 api.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, EEA-Validation-Key');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     return next();
 });
 

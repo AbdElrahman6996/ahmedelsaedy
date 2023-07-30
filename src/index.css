@@ -34,3 +34,25 @@ a {
     max-width: 1200px;
   }
 }
+
+
+.ytp-contextmenu
+{
+    display: none;
+    pointer-events: none;
+    z-index: -1;
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+    max-width: 0;
+    max-height: 0;
+    min-width: 0;
+    min-height: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: default;
+}
