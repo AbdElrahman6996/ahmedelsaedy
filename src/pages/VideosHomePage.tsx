@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from "../components/Video/Header";
 import BottomBar from "../components/Video/BottomBar";
-import VideoCard from "../components/Video/VideoCard";
 
 const VideoPage = () => {
     const [getVideos, setVideos] = useState([{}]);
 
     useEffect(( ) => {
         const level = Number(localStorage.getItem('edul') || 1);
-        fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyDUCz4h_WyzIIsMi6ww6PbRQgd67NnELLo&channelId=${ level == 1 ? 'UCA6aBGk_216jny3vhyJl8sQ' : level == 2 ? 'UCA6aBGk_216jny3vhyJl8sQ' : 'UCA6aBGk_216jny3vhyJl8sQ' }&part=snippet,id&order=date&maxResults=50`, {
+        fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyDUCz4h_WyzIIsMi6ww6PbRQgd67NnELLo&channelId=${ level === 1 ? 'UCA6aBGk_216jny3vhyJl8sQ' : level === 2 ? 'UCA6aBGk_216jny3vhyJl8sQ' : 'UCA6aBGk_216jny3vhyJl8sQ' }&part=snippet,id&order=date&maxResults=50`, {
             cache: 'reload'
         }).then(r=>r.json()).then(res => {
             const newList = (res as unknown as {
@@ -28,7 +27,7 @@ const VideoPage = () => {
             });
 
             const nl = newList.items.map(i => {
-                if ( i.id.videoId != undefined )
+                if ( i.id.videoId !== undefined )
                 {
                     return {
                         vid   : i.id.videoId,
@@ -40,7 +39,7 @@ const VideoPage = () => {
                 {
                     return;
                 }
-            }).filter(i => i != undefined);
+            }).filter(i => i !== undefined);
 
             return setVideos(nl as unknown as {}[]);
         });
@@ -62,7 +61,11 @@ const VideoPage = () => {
                             vid  : string,
                             title: string,
                             img  : string,
-                        }).img}/>
+                        }).img} alt={(video as unknown as {
+                            vid  : string,
+                            title: string,
+                            img  : string,
+                        }).title}/>
                         <p>{(video as unknown as {
                             vid  : string,
                             title: string,

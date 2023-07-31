@@ -1,34 +1,8 @@
-import React, { useEffect, useState, createRef } from "react";
+import { createRef } from "react";
 import "../css/DisplayVideo.css";
-
-const apiLink = 'http://localhost:8000/api';
 
 const DisplayVideo = () => {
     const iframe = createRef<HTMLIFrameElement>();
-  const [videoURL, setVideoURL] = useState('');
-
-  useEffect(() => {
-    const fetchVideoURL = async () => {
-      try {
-        const res = await fetch(apiLink + '/db/video', {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" }
-        });
-        const data = await res.json();
-        setVideoURL(data.videoURL);
-      } catch (error) {
-        console.error("Error fetching video URL:", error);
-      }
-    };
-
-    fetchVideoURL();
-    
-    setInterval(( ) => {
-        if (document.hasFocus()) {
-            navigator.clipboard.writeText('');
-        }
-    }, 64);
-  }, []);
 
   return (
     <main className="display-video">

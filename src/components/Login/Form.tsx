@@ -3,8 +3,11 @@ import '../css/Form.css'
 const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [emsg, setEmsg] = useState('');
+
   const sendData = async (email: string, password: string) => {
-    await fetch('http://localhost:3000/api/db/login', {
+    await fetch('http://localhost:8000/api/db/login', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify({
@@ -23,13 +26,17 @@ const Form = () => {
             }
         */
 
-        // Write the logic.
-        // You can get the latest 50 videos (yt api max results).
-        // edul is the education level of the account, first is 1, second is 2 and third is 3
-        localStorage.setItem('edul', response.edul); // Saves the eudl as a localStorage item, Can be used to gain the videos
-        // LINK: `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDUCz4h_WyzIIsMi6ww6PbRQgd67NnELLo&channelId={CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`
-        // LINK: `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDUCz4h_WyzIIsMi6ww6PbRQgd67NnELLo&channelId={CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`
-        // LINK: `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDUCz4h_WyzIIsMi6ww6PbRQgd67NnELLo&channelId={CHANNEL_ID}&part=snippet,id&order=date&maxResults=50`
+        setEmsg(response.reply);
+        setTimeout(( ) => setEmsg(''), 6 * 1024)
+
+        if ( response.code === 200 )
+        {
+            localStorage.setItem('edul', response.edul);
+            localStorage.setItem('eadd', email);
+            setTimeout(( ) => window.location.href = '/videos', 2 * 1024)
+        }
+
+        return;
     });
   }
   const handClick = () => {
@@ -41,14 +48,17 @@ const Form = () => {
         <h2>تسجيل الدخول</h2>
       </div>
       <div className="error-div">
-        <span>Error Message</span>
+        <span>{emsg}</span>
       </div>
       <div className="input-div">
         <input type="email" placeholder="example@gmail.com" onChange={(e) => setEmail(e.target.value)}/>
         <input type="password" minLength={8} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
       </div>
       <div className="login-btn">
-        <a  onClick={handClick}>تسجيل الدخول</a> {/* خليه button بقاااا*/}
+        <a href="#" style={{
+            cursor: 'pointer',
+            userSelect: 'none',
+        }} onClick={handClick}>تسجيل الدخول</a> {/* خليه button بقاااا*/}
       </div>
     </main>
   );

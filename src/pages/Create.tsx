@@ -5,8 +5,10 @@ const Create = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [year, setYear] = useState("");
+  const [rsEmail, setRSEmail] = useState('');
 
   const sendData = async (email: string, password: string, year: string) => {
+    if ( !email || !password || year === 'zero' || !year ) return alert('تأكد من ملىء معلومات الحساب قبل الإنشاء');
     await fetch("http://localhost:8000/api/db/register", {
       method: "POST",
       body: JSON.stringify({
@@ -25,12 +27,29 @@ const Create = () => {
             }
         */
 
-        // Write the logic.
+        return alert(response.reply);
     });
   };
 
   const handleClick = () => {
     sendData(email, password, year);
+  };
+
+  const handleResubButtonClick = () => {
+    if ( !rsEmail ) return alert('يرجى ادخال البريد الألكتروني لدى الحساب بطريقة صحيحة');
+    return fetch("http://localhost:8000/api/db/resub", {
+        method : 'POST',
+        mode   : 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body   : JSON.stringify({
+            emailAddress: rsEmail,
+            adminKey    : '9b124je37vtdp',
+        }),
+    }).then(r => r.json()).then(response => {
+        return alert(response.reply);
+    });
   };
 
   return (
@@ -57,14 +76,14 @@ const Create = () => {
       <div className="year">
         <label htmlFor="year">اختر السنه الدراسيه</label>
         <select value={year} onChange={(e) => setYear(e.target.value)}>
-          <option value="zero">اختر السنه الدراسيه</option>
+          <option hidden selected value="zero">اختر السنه الدراسيه</option>
           <option value="first">الاول الثانوي</option>
           <option value="second">الثاني الثانوي</option>
           <option value="third">الثالث الثانوي</option>
         </select>
       </div>
       <div className="create-btn">
-        <button onClick={handleClick}>انشاء الحساب</button>
+        <button onClick={() => handleClick()}>انشاء الحساب</button>
       </div>
       <h2>تجديد اشتراك</h2>
       <div className="renew">
@@ -72,9 +91,10 @@ const Create = () => {
         <input
           type="email"
           placeholder="example@gmail.com"
+          onChange={(e) => setRSEmail(e.target.value)}
         />
       </div>
-      <button>نجديد الاشتراك</button>
+      <button onClick={() => handleResubButtonClick()}>نجديد الاشتراك</button>
       <h2>رفع حصة</h2>
       <div className="name-video">
         <label htmlFor="Video Name">اسم الفديو</label>
