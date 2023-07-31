@@ -21,10 +21,16 @@ export const api_module:route = {
                 const diffTime = Math.abs(account_data.subscription.endsAt - account_data.subscription.subbedAt);
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
-                return res.json({
+                if ( diffDays > 0 ) return res.json({
                     reply  : 'سينتهي اشتراك الحساب بعد ' + diffDays + ' يوم',
                     email  : emailAddress,
                     code   : 200,
+                });
+
+                return res.json({
+                    reply  : 'انتهى اشتراك الحساب',
+                    email  : emailAddress,
+                    code   : 401,
                 });
             }
 

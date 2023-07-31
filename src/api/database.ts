@@ -30,4 +30,5 @@ export class database {
 
     public getDefaultDatabase         = ( ) => this.getDatabase('data');
     public getDefaultUsersCollection  = ( ) => this.getDefaultDatabase()?.collection('users');
+    public getDefaultVideosCollection  = ( ) => this.getDefaultDatabase()?.collection('videos');
 }

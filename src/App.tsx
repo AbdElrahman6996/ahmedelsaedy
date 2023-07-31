@@ -6,54 +6,54 @@ import Admin from "./pages/Create";
 import Landing from "./pages/Landing";
 
 function App() {
-    const ahmedElSaedy_Mail = 'tests22@gmail.com';
+    const ahmedElSaedy_Mail = 'test22@gmail.com';
 
-    const check = ( ) => {
-        if ( localStorage.getItem('eadd') !== null && localStorage.getItem('eadd') !== ahmedElSaedy_Mail )
-        {
-            return (async () => {
-                return await fetch('http://localhost:8000/api/db/user/sub/status?email=' + encodeURIComponent(localStorage.getItem('eadd')?.toString() || ''), {
-                }).then(r => r.json()).then(response => {
-                    if (response.code === 200) {
-                        return 'NA_S';
-                    }
-                    else {
-                        return 'NA_B';
-                    };
-                });
-            })() as unknown as 'NA_S' | 'NA_B';
-        }
-        
-        if ( localStorage.getItem('eadd') === ahmedElSaedy_Mail )
-        {
-            return 'NA_SB';
-        }
-    };
+    const checker = ( ) => {
+        fetch('http://localhost:8000/api/db/user/sub/status?email=' + encodeURIComponent(localStorage.getItem('eadd')?.toString() || ''), {
+            headers: {
+                'EET': 'klm_5dma_shbak_itsal_KEY_CODE_9991110022_SECRET'
+            }
+        }).then(r => r.json()).then(response => {
+            const endp = '/' + window.location.href.split('/')[window.location.href.split('/').length - 1].trim();
+            if (response.code === 200) {
+                if ( endp == '/admin' && (localStorage.getItem('eadd') as unknown as string) != ahmedElSaedy_Mail ) return window.location.href = '/';
+                else return;
+            } else {
+                if ( endp != '/' && endp != '/login' ) {
+                    localStorage.clear();
+                    return window.location.href = '/';
+                }
+                else return;
+            }
+        });
+    }
 
     let components;
   (async ( ) => {
     switch (window.location.pathname) {
         case "/":
+            checker();
             components = <Landing/>
             break;
         case "/videos":
+            checker();
             components = <VideoPage/>;
             break;
         case "/video":
+            checker();
             components = <Video />;
             break;
         case "/login":
+            checker();
             components = <Login />;
             break;
         case "/admin":
-            const e = check();
-
-            if (e === 'NA_SB') components = <Admin />;
-            else if(e === 'NA_B') window.location.href = '/';
-
+            checker();
+            components = <Admin />;
             break;
         default:
-          components = <Landing />;
+            checker();
+            components = <Landing />;
           break;
       }
     })();

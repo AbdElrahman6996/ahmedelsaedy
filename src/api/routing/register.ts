@@ -1,6 +1,5 @@
 import { dbclass } from "../runner";
 import { route } from "../route";
-import { create_new_token } from "../functions/auth/sign-up/impl";
 
 import Hasher from "../functions/auth/hash/impt";
 import { educationLevels, userData } from "./login";

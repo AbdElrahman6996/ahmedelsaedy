@@ -5,7 +5,10 @@ const Create = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [year, setYear] = useState("");
+  const [eduyear, setEduyear] = useState("");
   const [rsEmail, setRSEmail] = useState('');
+  const [videoUrl, setVideoURL] = useState('');
+  const idRegex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user|shorts)\/))([^\?&\"'>]+)/;
 
   const sendData = async (email: string, password: string, year: string) => {
     if ( !email || !password || year === 'zero' || !year ) return alert('تأكد من ملىء معلومات الحساب قبل الإنشاء');
@@ -16,7 +19,7 @@ const Create = () => {
         password: password,
         educationLevel: year,
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", 'EET': 'klm_5dma_shbak_itsal_KEY_CODE_9991110022_SECRET' },
     }).then(r => r.json()).then(response => {
         // What will you do with the response
         /*
@@ -41,7 +44,8 @@ const Create = () => {
         method : 'POST',
         mode   : 'cors',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'EET': 'klm_5dma_shbak_itsal_KEY_CODE_9991110022_SECRET'
         },
         body   : JSON.stringify({
             emailAddress: rsEmail,
@@ -51,6 +55,25 @@ const Create = () => {
         return alert(response.reply);
     });
   };
+
+    const addVideoToDatabase = ( ) => {
+        if (/^\s*$/.test(videoUrl) || !videoUrl || !eduyear) return alert('يتطلب وضع رابط المقطع بطريقة صحيحة لرفعه على المنصه و اختيار السنة الدراسية.')
+        const videoId = idRegex.exec(videoUrl) as unknown as number[];
+        return fetch("http://localhost:8000/api/db/add/video", {
+            method : 'POST',
+            mode   : 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'EET': 'klm_5dma_shbak_itsal_KEY_CODE_9991110022_SECRET'
+            },
+            body   : JSON.stringify({
+                vid : videoId[1],
+                edul: eduyear,
+            }),
+        }).then(r => r.json()).then(response => {
+            return alert(response.reply);
+        });
+    };
 
   return (
     <div className="admin-form">
@@ -96,33 +119,23 @@ const Create = () => {
       </div>
       <button onClick={() => handleResubButtonClick()}>نجديد الاشتراك</button>
       <h2>رفع حصة</h2>
-      <div className="name-video">
-        <label htmlFor="Video Name">اسم الفديو</label>
-        <input
-          type="email"
-          placeholder="الحصة الاولى ( نحو )"
-        />
-      </div>
       <div className="note-video">
-        <label htmlFor="Video note">العنوان الفرعي للحصه</label>
+        <label htmlFor="Video note">رابط المقطع</label>
         <input
           type="email"
-          placeholder="الفصل الاول من القصة (الايام )"
-        />
+          placeholder="https://youtube.com/watch?v=XXXXXX"
+         onChange={(e) => setVideoURL(e.target.value)}/>
       </div>
-      <div className="picture-video">
-        <label htmlFor="pic">اختيار الصوره المصغره</label>
-        <input
-          type="file"
-        />
+      <div className="year">
+        <label htmlFor="year">اختر السنه الدراسيه</label>
+        <select value={eduyear} onChange={(e) => setEduyear(e.target.value)}>
+          <option hidden selected value="zero">اختر السنه الدراسيه</option>
+          <option value="first">الاول الثانوي</option>
+          <option value="second">الثاني الثانوي</option>
+          <option value="third">الثالث الثانوي</option>
+        </select>
       </div>
-      <div className="main-video">
-        <label htmlFor="pic">اختيار مقطع الفديو</label>
-        <input
-          type="file"
-        />
-      </div>
-      <button>رفع الحصة</button>
+      <button onClick={() => addVideoToDatabase()}>رفع الحصة</button>
     </div>
   );
 };

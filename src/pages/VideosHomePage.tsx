@@ -7,41 +7,15 @@ const VideoPage = () => {
 
     useEffect(( ) => {
         const level = Number(localStorage.getItem('edul') || 1);
-        fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyDUCz4h_WyzIIsMi6ww6PbRQgd67NnELLo&channelId=${ level === 1 ? 'UCA6aBGk_216jny3vhyJl8sQ' : level === 2 ? 'UCA6aBGk_216jny3vhyJl8sQ' : 'UCA6aBGk_216jny3vhyJl8sQ' }&part=snippet,id&order=date&maxResults=50`, {
-            cache: 'reload'
-        }).then(r=>r.json()).then(res => {
-            const newList = (res as unknown as {
-                items: [{
-                    id: {
-                        videoId: string
-                    },
-                    snippet: {
-                        title     : string,
-                        thumbnails: {
-                            high: {
-                                url: string
-                            }
-                        }
-                    }
-                }]
-            });
-
-            const nl = newList.items.map(i => {
-                if ( i.id.videoId !== undefined )
-                {
-                    return {
-                        vid   : i.id.videoId,
-                        title : i.snippet.title,
-                        img   : i.snippet.thumbnails.high.url,
-                    }
-                }
-                else 
-                {
-                    return;
-                }
-            }).filter(i => i !== undefined);
-
-            return setVideos(nl as unknown as {}[]);
+        fetch("http://localhost:8000/api/db/get/video?edul=" + (level === 1 ? 'first' : level === 2 ? 'second' : 'third'), {
+            method : 'GET',
+            mode   : 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'EET': 'klm_5dma_shbak_itsal_KEY_CODE_9991110022_SECRET'
+            },
+        }).then(r => r.json()).then(response => {
+            return setVideos(response.data);
         });
     }, []);
 
@@ -52,25 +26,25 @@ const VideoPage = () => {
                 { getVideos ? getVideos.map((video, index) => (
                     <div className='video-ele' key={index} onClick={() => {
                         window.location.href = `/video?id=${(video as unknown as {
-                            vid  : string,
-                            title: string,
-                            img  : string,
-                        }).vid}`
+                            videoId   : string,
+                            videoImage: string,
+                            videoTitle: string,
+                        }).videoId}`
                     }}>
                         <img src={(video as unknown as {
-                            vid  : string,
-                            title: string,
-                            img  : string,
-                        }).img} alt={(video as unknown as {
-                            vid  : string,
-                            title: string,
-                            img  : string,
-                        }).title}/>
+                            videoId   : string,
+                            videoImage: string,
+                            videoTitle: string,
+                        }).videoImage} alt={(video as unknown as {
+                            videoId   : string,
+                            videoImage: string,
+                            videoTitle: string,
+                        }).videoTitle}/>
                         <p>{(video as unknown as {
-                            vid  : string,
-                            title: string,
-                            img  : string,
-                        }).title}</p>
+                            videoId   : string,
+                            videoImage: string,
+                            videoTitle: string,
+                        }).videoTitle}</p>
                     </div>
                 )) : <p>Loading ..</p> }
             </section>

@@ -18,7 +18,11 @@ api.use(urlencoded({ extended: true }));
 
 api.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, EET');
+    if (( req.headers as { 'eet': string } )['eet'] != 'klm_5dma_shbak_itsal_KEY_CODE_9991110022_SECRET') return res.json({
+        message: 'NOT_ALLOWED',
+        code: 401,
+    });
     return next();
 });
 
