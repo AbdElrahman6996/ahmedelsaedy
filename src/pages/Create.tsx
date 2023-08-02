@@ -79,10 +79,10 @@ const Create = () => {
     <div className="admin-form">
       <h2>إنشاء حساب</h2>
       <div className="email">
-        <label htmlFor="Email">ادخل الايميل</label>
+        <label htmlFor="Email">ادخل كود الطالب/ة</label>
         <input
           type="email"
-          placeholder="example@gmail.com"
+          placeholder="كود مميز للطالب"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -110,17 +110,17 @@ const Create = () => {
       </div>
       <h2>تجديد اشتراك</h2>
       <div className="renew">
-        <label htmlFor="Video Name">ادخل البريد الالكتروني</label>
+        <label htmlFor="Video Name">ادخل كود الطالب/ة</label>
         <input
           type="email"
-          placeholder="example@gmail.com"
+          placeholder="كود مميز للطالب"
           onChange={(e) => setRSEmail(e.target.value)}
         />
       </div>
       <button onClick={() => handleResubButtonClick()}>نجديد الاشتراك</button>
       <h2>رفع حصة</h2>
       <div className="note-video">
-        <label htmlFor="Video note">رابط المقطع</label>
+        <label htmlFor="Video note">رابط الفيديو</label>
         <input
           type="email"
           placeholder="https://youtube.com/watch?v=XXXXXX"

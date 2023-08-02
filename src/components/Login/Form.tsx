@@ -51,8 +51,8 @@ const Form = () => {
         <span>{emsg}</span>
       </div>
       <div className="input-div">
-        <input type="email" placeholder="example@gmail.com" onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" minLength={8} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+        <input type="email" placeholder="الكود المميز" onChange={(e) => setEmail(e.target.value)}/>
+        <input type="password" minLength={8} placeholder="كلمة المرور" onChange={(e) => setPassword(e.target.value)}/>
       </div>
       <div className="login-btn">
         <a href="#" style={{
