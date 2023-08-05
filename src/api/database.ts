@@ -2,12 +2,10 @@ import { Db, MongoClient, ServerApiVersion } from 'mongodb';
 
 import { Message } from './api';
 
-
 export class database {
     public client          : MongoClient | undefined;
 
     public connectToAtlas = async ()  => {
-        
         try
         {
             this.client = new MongoClient('mongodb+srv://abdoamir:Bodbod.9895@cluster0.dywnnlg.mongodb.net/?retryWrites=true&w=majority', { 
@@ -32,4 +30,5 @@ export class database {
 
     public getDefaultDatabase         = ( ) => this.getDatabase('data');
     public getDefaultUsersCollection  = ( ) => this.getDefaultDatabase()?.collection('users');
+    public getDefaultVideosCollection  = ( ) => this.getDefaultDatabase()?.collection('videos');
 }

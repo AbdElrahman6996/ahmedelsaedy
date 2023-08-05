@@ -12,7 +12,11 @@ const Landing = () => {
       <Hero />
       <Him />
       <Photos />
-      <footer>
+      <footer style={{
+        textAlign: "center",
+        direction: "rtl",
+        margin: "50px 0px"
+      }}>
         <span>جميع حقوق الطبع والنشر محفوظه {year} &copy;</span>
       </footer>
     </>

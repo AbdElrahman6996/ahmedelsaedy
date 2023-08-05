@@ -34,3 +34,108 @@ a {
     max-width: 1200px;
   }
 }
+.video-container {
+    min-width: 80%;
+
+    direction: rtl;
+
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(340px, 1fr) );
+
+    gap: 12px;
+
+    margin-bottom: 6rem;
+}
+.video-container div {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 12px;
+  cursor: pointer;
+  min-width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+.video-container div p
+{
+  direction: rtl;
+  font-size: 20px;
+  max-width: 300px;
+  justify-self: end;
+  align-self: flex-end;
+}
+
+.video-container div img{
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.48);
+  transition: all 256ms ease;
+}
+
+.video-container div img:is(:hover, :focus){
+  border-radius: 8px;
+  box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.48);
+  transform: translateY(-5px);
+}
+
+.ytp-contextmenu
+{
+    display: none;
+    pointer-events: none;
+    z-index: -1;
+    background-color: transparent;
+    color: transparent;
+    font-size: 0;
+    max-width: 0;
+    max-height: 0;
+    min-width: 0;
+    min-height: 0;
+    width: 0;
+    height: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: default;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2C2C2C #EBEBEB;
+  }
+  
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #EBEBEB;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #2C2C2C;
+    border: 2px solid #FFFFFF;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #3F3C3C;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #292B2B;
+  }
